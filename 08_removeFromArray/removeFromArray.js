@@ -1,12 +1,16 @@
-const removeFromArray = function(arr, ...items) {
-    // for (let i = 0; i < items.length; i++) {
-        if (arr.some(elem => elem === items[i])) {
-            arr.splice(i, 1);
-            items.shift();
-        }
-    // }
-    return arr;
-};
+// const removeFromArray = (array, ...args) => {
+//     let newArray = [];
+//     array.forEach(item => {
+//         if (!args.includes(item)) {
+//             newArray.push(item);
+//         }
+//     });
+//     return newArray;
+// }
+
+const removeFromArray = (array, ...args) => {
+    return array.filter(item => !args.includes(item));
+}
 
 // Do not edit below this line
 module.exports = removeFromArray;
