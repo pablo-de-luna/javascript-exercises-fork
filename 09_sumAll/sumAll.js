@@ -1,14 +1,16 @@
 const sumAll = (...args) => {
-    let firstNum = parseInt(Math.min(...args));
-    let lastNum = parseInt(Math.max(...args));
-    
-    if (firstNum < 0 || lastNum < 0) {
-        return 'ERROR'
+    if (args.some(item => 
+        isNaN(item) 
+        || item < 0
+        || !Number.isInteger(item)
+    )) {
+        return 'ERROR';
     }
     
-    console.log('firstNum =', firstNum,'lastNum =', lastNum);
-    
+    let firstNum = parseInt(Math.min(...args));
+    let lastNum = parseInt(Math.max(...args));
     let sum = 0;
+    
     for (let i = firstNum; i <= lastNum; i++) {
         sum += i;
     }
